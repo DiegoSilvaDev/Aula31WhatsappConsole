@@ -1,0 +1,13 @@
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.exe
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.deps.json
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.runtimeconfig.json
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.runtimeconfig.dev.json
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.dll
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\bin\Debug\netcoreapp3.1\Whatsapp.pdb
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.csprojAssemblyReference.cache
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.csproj.CoreCompileInputs.cache
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.AssemblyInfoInputs.cache
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.AssemblyInfo.cs
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.dll
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.pdb
+C:\Users\Diego\OneDrive\Área de Trabalho\Ux\SENAI\Whatsapp\obj\Debug\netcoreapp3.1\Whatsapp.genruntimeconfig.cache
