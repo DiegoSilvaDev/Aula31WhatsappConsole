@@ -12,11 +12,17 @@ namespace Whatsapp
             Mensagem men1 = new Mensagem();
         
 
-            contact.Cadastrar(cont1);
-            contact.Excluir("José");
+            Contato c1 = new Contato("Paulo     ", "(11) 999999-99999");
+            Contato c2 = new Contato("Roberto   ", "(11) 999999-99999");
+            Contato c3 = new Contato("Brandao   ", "(11) 999999-99999");
+
+            contact.Cadastrar(c1);
+            contact.Cadastrar(c2);
+            contact.Cadastrar(c3);
             
             List<Contato> lista = new List<Contato>();
             lista = contact.Listar();
+            contact.Excluir(c1);
 
             foreach( Contato item in lista)
             {
@@ -26,12 +32,12 @@ namespace Whatsapp
                 Console.ResetColor();
             }
 
-            System.Console.WriteLine();
+            Mensagem msg = new Mensagem();
+            msg.Destinatario = c3;
+            msg.Texto  = "Olá " + msg.Destinatario.Nome + "!";
+            Console.WriteLine( msg.Enviar());
 
-            men1.Texto="'Eae po, suave' \n";
-            men1.Enviar("Pedro");
-            contact.CadastrarMensagem(men1);
-            System.Console.WriteLine($"{men1.Texto}foi enviado para {men1.Destinatario}");
+
         }
     }
 }

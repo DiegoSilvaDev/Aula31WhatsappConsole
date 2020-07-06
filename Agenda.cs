@@ -11,7 +11,9 @@ namespace Whatsapp
         List<Contato> contatos = new List<Contato>();
         private const string PATH = "Database/agenda.csv";
 
-
+        /// <summary>
+        /// Responsável por criar o diretório "Database" e o arquivo "Agenda" caso não existir
+        /// </summary>
         public Agenda(){
             if(!(Directory.Exists(PATH))){
                 Directory.CreateDirectory("Database");
@@ -24,13 +26,17 @@ namespace Whatsapp
         /// <summary>
         /// Cadastra um novo contato
         /// </summary>
-        /// <param name="_cont">argumento "Contato novo"</param>
+        /// <param name="_cont">argumento "Contato novo" salvo no CSV</param>
         public void Cadastrar(Contato _cont)
         {
             var linha = new string[] { PrepararLinhaCSV(_cont) };
             File.AppendAllLines(PATH, linha);
         }
 
+        /// <summary>
+        /// Cadastra a mensagem no CSV
+        /// </summary>
+        /// <param name="mensagem">mensagem salva no CSV</param>
         public void CadastrarMensagem(Mensagem mensagem){
             var linha = new string[] { PrepararLinhaCSV(mensagem) };
             File.AppendAllLines(PATH, linha);
@@ -40,16 +46,20 @@ namespace Whatsapp
         /// Exclui um contato
         /// </summary>
         /// <param name="_delCont">Argumento "Contato deletado"</param>
-        public void Excluir(string _delCont){
+        public void Excluir(Contato _delCont){
             List<string> linhas =  new List<string>();
 
             LerCSV(linhas);
 
-            linhas.RemoveAll(l => l.Contains(_delCont));
+            linhas.RemoveAll(l => l.Contains(_delCont.Nome));
 
             ReescreverCSV(linhas);
         }
 
+        /// <summary>
+        /// Lê os contatos 
+        /// </summary>
+        /// <returns>retorna os contatos por nome e número</returns>
         public List<Contato> Listar()
         {
             List<Contato> contatos = new List<Contato>();
@@ -59,9 +69,7 @@ namespace Whatsapp
             foreach (var linha in linhas){
                 string[] dados = linha.Split(";");
 
-                Contato cont = new Contato();
-                cont.Nome = Separar(dados[0]);
-                cont.Telefone = Separar(dados[1]);
+                Contato cont = new Contato( dados[0], dados[1]);
 
                 contatos.Add(cont);
             }
@@ -72,6 +80,10 @@ namespace Whatsapp
 
         }
 
+        /// <summary>
+        /// Reescreve o CSV
+        /// </summary>
+        /// <param name="lines">Lista de linhas</param>
         public void ReescreverCSV(List<string> lines){
             using(StreamWriter output = new StreamWriter(PATH)){
                 // output.Write(String.Join(Environment.NewLine, linhas.ToArray()));
@@ -81,6 +93,10 @@ namespace Whatsapp
             }
         }
 
+        /// <summary>
+        /// Lê o CSV
+        /// </summary>
+        /// <param name="lines">lista de linhas</param>
         public void LerCSV(List<string> lines){
             using(StreamReader arquivo = new StreamReader(PATH)){
                 string line;
@@ -90,15 +106,30 @@ namespace Whatsapp
             }
         }
 
+        /// <summary>
+        /// Separa os itens por colunas
+        /// </summary>
+        /// <param name="dado">separa os itens do csv</param>
+        /// <returns>valor da indice [1] da coluna</returns>
         public string Separar(string dado)
         {
             return dado.Split("=")[1];
         }
         
-
+        /// <summary>
+        /// Prepara as linhas 
+        /// </summary>
+        /// <param name="novoContato">item colocado no console</param>
+        /// <returns>itens</returns>
         private string PrepararLinhaCSV(Contato novoContato){
             return $"nome = {novoContato.Nome};telefone = {novoContato.Telefone}";
         }
+
+        /// <summary>
+        /// Prepara as linhas
+        /// </summary>
+        /// <param name="men">Armazena a mensagem</param>
+        /// <returns>mensagens</returns>
         private string PrepararLinhaCSV(Mensagem men){
             return $"Mensagem = {men.Texto};Destinatario = {men.Destinatario}";
         }
